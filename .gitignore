@@ -1,0 +1,5 @@
+node_modules/
+episodes/*/frames/
+episodes/*/*.wav
+episodes/*/preview_*.jpg
+config.env
