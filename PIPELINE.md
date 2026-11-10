@@ -1,9 +1,51 @@
 # Fábrica Gepeta — rotina diária
 
-> **O vídeo diário é sempre feito com o motor 3D** (Three.js, estilo do
-> episódio do baiacu) e vai para as três redes: YouTube Shorts, TikTok e
-> Instagram. O formato realista gerado na fal.ai **não é automático** — só
-> sai quando o Lucas pedir. A receita dele está em `RECEITA-FAL.md`.
+> O vídeo diário vai para as três redes: YouTube Shorts, TikTok e Instagram,
+> e sai em **um de dois formatos**, sorteado a cada dia (ver "Formato do dia").
+> Os dois são renderizados aqui, sem custo de API. O formato realista gerado
+> na fal.ai **não é automático** — só sai quando o Lucas pedir. A receita dele
+> está em `RECEITA-FAL.md`.
+
+## Formato do dia
+
+Sorteie no começo da rodada, com peso igual, e registre qual saiu no
+`historico.json`. Se os **dois últimos** episódios foram do mesmo formato,
+use o outro — o sorteio não pode virar sequência.
+
+**A — Curiosidade 3D** (motor Three.js, estilo baiacu/polvo)
+Um bicho ou fenômeno real, piada de duplo sentido na abertura, narração em
+voz, animação low-poly. É o formato descrito no resto deste arquivo.
+
+**B — História em 2D de legenda** (canvas 2D, sem narração obrigatória)
+Formato dos canais de referência: vetor chapado, traço grosso, fundo escuro
+com uma cor de destaque, contado inteiro por **legenda na tela**, de forma que
+funcione no mudo. Serve a dois tipos de ideia:
+
+- *Hipótese levada a sério*: "e se você parasse no tempo?", "e se uma IA se
+  rebelar?" — a premissa é absurda, mas as consequências são físicas e
+  checadas. É aqui que a curiosidade entra: o ar vira parede, o escuro, o
+  silêncio. Sem fato real conferido, não vale.
+- *Micro-história de arrepio*: duas ou três viradas curtas, construção lenta,
+  frase final que recontextualiza tudo. Sempre ficção explícita.
+
+Estrutura que segura o espectador: **capítulos numerados** ("1. O escuro",
+"2. O silêncio"). Numerar promete uma lista e faz a pessoa ficar pelo
+próximo número. Use de 3 a 5.
+
+Duração: **75 a 85 segundos**. Os canais de referência todos ficam nessa faixa.
+Acima do minuto do TikTok com folga, e o formato de legenda aguenta esse tempo.
+
+Produzir: desenhe em canvas 2D e renderize com o mesmo `render.mjs`, que é
+agnóstico de cena. Sai muito mais rápido que o 3D — é desenho chapado, não
+tem luz nem sombra pra calcular.
+
+### Palavrão
+Pode, com parcimônia: um ou dois por vídeo, no momento da virada, onde o
+palavrão **é** a reação. Nunca na legenda do post nem no título, e nunca nos
+primeiros 10 segundos — o YouTube avalia ad suitability com peso extra na
+abertura, e xingamento pesado logo no começo é o que mais derruba a
+monetização de um Short. Palavrão de reação ("porra", "caralho") tudo bem;
+xingamento dirigido a alguém, nunca.
 
 Este arquivo é a instrução completa de uma rodada. Uma sessão nova do Claude
 abre o repositório, lê isto e produz o vídeo do dia sozinha.
