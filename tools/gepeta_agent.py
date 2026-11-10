@@ -198,6 +198,16 @@ def job_fal(job, cfg):
     if not status_url:
         return {"ok": False, "detail": "resposta sem status_url: " + str(body)[:300]}
 
+    # grava o pedido ANTES de esperar: se o processo morrer agora, a proxima
+    # subida retoma este mesmo pedido em vez de gerar (e pagar) outro
+    with open(os.path.join(dest, "request.json"), "w", encoding="utf-8") as fh:
+        json.dump({"model": model, "request_id": req_id,
+                   "status_url": status_url, "response_url": response_url}, fh)
+
+    return fal_finish(jid, dest, headers, status_url, response_url, req_id, job, model)
+
+
+def fal_finish(jid, dest, headers, status_url, response_url, req_id, job, model):
     deadline = time.time() + float(job.get("timeout_seconds", 900))
     state = "IN_QUEUE"
     while time.time() < deadline:
@@ -244,6 +254,40 @@ def job_fal(job, cfg):
 
     return {"ok": bool(saved), "model": model, "request_id": req_id,
             "files": saved, "detail": "" if saved else "resposta sem arquivo"}
+
+
+def resume_running(cfg):
+    """Retoma tarefas da fal que ficaram no meio: o pedido ja foi pago, entao
+    acompanhamos o mesmo request_id em vez de enviar outro."""
+    key = cfg.get("FAL_KEY")
+    for name in sorted(os.listdir(JOBS)):
+        if not name.endswith(".job.json.running"):
+            continue
+        base = name[: -len(".job.json.running")]
+        req_path = os.path.join(OUT, base, "request.json")
+        if not os.path.exists(req_path):
+            log(f"tarefa {base} ficou pela metade e nao tem pedido salvo; "
+                "renomeie para .job.json se quiser tentar de novo")
+            continue
+        if not key:
+            continue
+        with open(req_path, encoding="utf-8") as fh:
+            req = json.load(fh)
+        log(f"retomando {base}: pedido {req.get('request_id')}")
+        try:
+            result = fal_finish(base, os.path.join(OUT, base),
+                                {"Authorization": "Key " + key},
+                                req["status_url"], req.get("response_url"),
+                                req.get("request_id"), {}, req.get("model", ""))
+        except Exception as e:
+            result = {"ok": False, "detail": repr(e)}
+        result["kind"] = "fal"
+        result["retomada"] = True
+        result["finished_at"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        with open(os.path.join(JOBS, base + ".done.json"), "w", encoding="utf-8") as fh:
+            json.dump(result, fh, ensure_ascii=False, indent=1)
+        os.rename(os.path.join(JOBS, name), os.path.join(JOBS, base + ".job.json.done"))
+        log(f"{base} retomada ->", "ok" if result.get("ok") else "FALHOU")
 
 
 def job_push(job, cfg):
@@ -303,6 +347,7 @@ HANDLERS = {"tts": job_tts, "fal": job_fal, "push": job_push, "probe": job_probe
 def process_once(cfg):
     os.makedirs(JOBS, exist_ok=True)
     os.makedirs(OUT, exist_ok=True)
+    resume_running(cfg)
     pending = sorted(f for f in os.listdir(JOBS) if f.endswith(".job.json"))
     for name in pending:
         path = os.path.join(JOBS, name)
