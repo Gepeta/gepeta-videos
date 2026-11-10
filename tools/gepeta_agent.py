@@ -186,6 +186,7 @@ def job_fal(job, cfg):
     if status not in (200, 201, 202):
         return {"ok": False, "status": status, "detail": str(body.get("error", body))[:400]}
 
+    log(f"  fal {jid}: aceito, aguardando a fila")
     status_url = body.get("status_url")
     response_url = body.get("response_url")
     req_id = body.get("request_id")
@@ -199,6 +200,7 @@ def job_fal(job, cfg):
         st, sb = http_json(status_url, headers)
         state = sb.get("status", "?")
         if state == "COMPLETED":
+            log(f"  fal {jid}: pronto, baixando")
             break
         if state in ("FAILED", "ERROR", "CANCELLED"):
             return {"ok": False, "detail": f"fal retornou {state}: " + str(sb)[:400]}
@@ -217,10 +219,19 @@ def job_fal(job, cfg):
         path = os.path.join(dest, f"{i:02d}{ext}")
         try:
             req = urllib.request.Request(url)
+            got = 0
             with urllib.request.urlopen(req, timeout=300) as r, open(path, "wb") as fh:
-                fh.write(r.read())
-            saved.append({"path": path, "bytes": os.path.getsize(path)})
+                while True:
+                    chunk = r.read(262144)
+                    if not chunk:
+                        break
+                    fh.write(chunk)
+                    fh.flush()
+                    got += len(chunk)
+            log(f"  baixado {os.path.basename(path)}: {got} bytes")
+            saved.append({"path": path, "bytes": got})
         except Exception as e:
+            log(f"  FALHA ao baixar {url[:80]}: {e!r}")
             saved.append({"path": path, "error": repr(e)})
 
     with open(os.path.join(dest, "fal_response.json"), "w", encoding="utf-8") as fh:
@@ -290,12 +301,21 @@ def process_once(cfg):
     pending = sorted(f for f in os.listdir(JOBS) if f.endswith(".job.json"))
     for name in pending:
         path = os.path.join(JOBS, name)
+        # reserva a tarefa antes de executar: se o processo morrer no meio, ela
+        # NAO volta para a fila e nao gera cobranca duplicada na fal
+        running = path + ".running"
+        try:
+            os.rename(path, running)
+        except OSError as e:
+            log("nao consegui reservar", name, e)
+            continue
+        path = running
         try:
             with open(path, encoding="utf-8") as fh:
                 job = json.load(fh)
         except Exception as e:
             log("tarefa ilegivel", name, e)
-            os.rename(path, path + ".bad")
+            os.rename(path, os.path.join(JOBS, name + ".bad"))
             continue
         kind = job.get("kind", "tts")
         fn = HANDLERS.get(kind)
@@ -311,7 +331,7 @@ def process_once(cfg):
         done = os.path.join(JOBS, re.sub(r"\.job\.json$", "", name) + ".done.json")
         with open(done, "w", encoding="utf-8") as fh:
             json.dump(result, fh, ensure_ascii=False, indent=1)
-        os.rename(path, path + ".done")
+        os.rename(path, os.path.join(JOBS, name + ".done"))
         log(name, "->", "ok" if result.get("ok") else "FALHOU", result.get("detail", ""))
     return len(pending)
 
