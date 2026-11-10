@@ -266,8 +266,10 @@ def resume_running(cfg):
         base = name[: -len(".job.json.running")]
         req_path = os.path.join(OUT, base, "request.json")
         if not os.path.exists(req_path):
-            log(f"tarefa {base} ficou pela metade e nao tem pedido salvo; "
-                "renomeie para .job.json se quiser tentar de novo")
+            # sem pedido salvo nao da para retomar; tira da frente para nao
+            # repetir este aviso a cada ciclo
+            os.rename(os.path.join(JOBS, name), os.path.join(JOBS, base + ".job.json.orfa"))
+            log(f"tarefa {base} ficou pela metade sem pedido salvo -> marcada .orfa")
             continue
         if not key:
             continue

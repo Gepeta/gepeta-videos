@@ -1,0 +1,54 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Base,Poppins,78,&H00FFFFFF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,6,3,2,40,40,210,1
+Style: Key,Poppins,84,&H0000E5FF,&H00000000,&H64000000,-1,0,0,0,100,100,0,0,1,6,3,2,40,40,210,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.35,0:00:00.65,Base,,0,0,0,,{\fad(40,60)}ESSA
+Dialogue: 0,0:00:00.65,0:00:00.71,Base,,0,0,0,,{\fad(40,60)}É
+Dialogue: 0,0:00:00.71,0:00:00.77,Base,,0,0,0,,{\fad(40,60)}A
+Dialogue: 0,0:00:00.77,0:00:01.50,Key,,0,0,0,,{\fad(40,60)}COXINHARA.
+Dialogue: 0,0:00:01.50,0:00:01.92,Base,,0,0,0,,{\fad(40,60)}METADE
+Dialogue: 0,0:00:01.92,0:00:02.36,Key,,0,0,0,,{\fad(40,60)}COXINHA,
+Dialogue: 0,0:00:02.36,0:00:02.73,Base,,0,0,0,,{\fad(40,60)}METADE
+Dialogue: 0,0:00:02.73,0:00:03.35,Key,,0,0,0,,{\fad(40,60)}CAPIVARA,
+Dialogue: 0,0:00:03.35,0:00:03.76,Base,,0,0,0,,{\fad(40,60)}INTEIRA
+Dialogue: 0,0:00:03.76,0:00:04.51,Key,,0,0,0,,{\fad(40,60)}DESEMPREGADA.
+Dialogue: 0,0:00:04.51,0:00:04.74,Base,,0,0,0,,{\fad(40,60)}ELA
+Dialogue: 0,0:00:04.74,0:00:04.92,Base,,0,0,0,,{\fad(40,60)}BOIA
+Dialogue: 0,0:00:04.92,0:00:05.01,Base,,0,0,0,,{\fad(40,60)}O
+Dialogue: 0,0:00:05.01,0:00:05.19,Base,,0,0,0,,{\fad(40,60)}DIA
+Dialogue: 0,0:00:05.19,0:00:05.41,Base,,0,0,0,,{\fad(40,60)}TODO
+Dialogue: 0,0:00:05.41,0:00:05.49,Base,,0,0,0,,{\fad(40,60)}NO
+Dialogue: 0,0:00:05.49,0:00:05.69,Base,,0,0,0,,{\fad(40,60)}RIO
+Dialogue: 0,0:00:05.69,0:00:05.74,Base,,0,0,0,,{\fad(40,60)}E
+Dialogue: 0,0:00:05.74,0:00:05.98,Base,,0,0,0,,{\fad(40,60)}NINGUÉM
+Dialogue: 0,0:00:05.98,0:00:06.22,Base,,0,0,0,,{\fad(40,60)}NUNCA
+Dialogue: 0,0:00:06.22,0:00:06.64,Base,,0,0,0,,{\fad(40,60)}PERGUNTOU
+Dialogue: 0,0:00:06.64,0:00:07.03,Base,,0,0,0,,{\fad(40,60)}NADA.
+Dialogue: 0,0:00:07.03,0:00:07.40,Base,,0,0,0,,{\fad(40,60)}SEMANA
+Dialogue: 0,0:00:07.40,0:00:07.73,Base,,0,0,0,,{\fad(40,60)}PASSADA
+Dialogue: 0,0:00:07.73,0:00:07.85,Base,,0,0,0,,{\fad(40,60)}ELA
+Dialogue: 0,0:00:07.85,0:00:08.12,Base,,0,0,0,,{\fad(40,60)}SENTOU
+Dialogue: 0,0:00:08.12,0:00:08.27,Base,,0,0,0,,{\fad(40,60)}NA
+Dialogue: 0,0:00:08.27,0:00:08.54,Base,,0,0,0,,{\fad(40,60)}FEIRA,
+Dialogue: 0,0:00:08.54,0:00:08.62,Base,,0,0,0,,{\fad(40,60)}NO
+Dialogue: 0,0:00:08.62,0:00:08.80,Base,,0,0,0,,{\fad(40,60)}MEIO
+Dialogue: 0,0:00:08.80,0:00:09.02,Base,,0,0,0,,{\fad(40,60)}DAS
+Dialogue: 0,0:00:09.02,0:00:09.29,Base,,0,0,0,,{\fad(40,60)}OUTRAS
+Dialogue: 0,0:00:09.29,0:00:09.89,Key,,0,0,0,,{\fad(40,60)}COXINHAS.
+Dialogue: 0,0:00:09.89,0:00:10.23,Base,,0,0,0,,{\fad(40,60)}VENDEU
+Dialogue: 0,0:00:10.23,0:00:10.39,Base,,0,0,0,,{\fad(40,60)}POR
+Dialogue: 0,0:00:10.39,0:00:10.61,Key,,0,0,0,,{\fad(40,60)}OITO
+Dialogue: 0,0:00:10.61,0:00:11.08,Key,,0,0,0,,{\fad(40,60)}REAIS.
+Dialogue: 0,0:00:11.08,0:00:11.23,Base,,0,0,0,,{\fad(40,60)}E
+Dialogue: 0,0:00:11.23,0:00:11.55,Base,,0,0,0,,{\fad(40,60)}VOLTOU
+Dialogue: 0,0:00:11.55,0:00:12.30,Key,,0,0,0,,{\fad(40,60)}ANDANDO.
