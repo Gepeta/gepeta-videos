@@ -21,15 +21,44 @@ sem o app do GitHub**. A narração sai pelo agente local; o push sai da nuvem.
 
 ## Os passos
 
-### 1. Escolher o tema
-`topics.json` tem os candidatos. Pegue o primeiro com `"used": false`. Se a
-lista acabar, escreva mais 20 candidatos no mesmo formato antes de seguir.
+### 1. Achar o assunto do dia
+O canal fala do que a internet está comentando **hoje**. Pesquise antes de
+decidir, sempre, e em mais de um lugar:
+
+- Reddit: o que está subindo em r/all, r/todayilearned, r/interestingasfuck,
+  r/NatureIsFuckingLit, r/Damnthatsinteresting, r/brasil.
+- X: assuntos do momento, principalmente os que viraram piada.
+- Busca na web pelo que explodiu nas últimas 24 a 48 horas.
+
+Procure o que serve ao formato: algo **visual**, que caiba em 50 segundos de
+animação low-poly, que tenha um fato surpreendente dentro e que aceite uma
+piada de duplo sentido na abertura. Um assunto só com gente falando, sem fato
+e sem imagem possível, não vira vídeo bom — descarte e pegue o próximo.
+
+Se nada do dia servir, use `topics.json`: é a lista reserva de curiosidades de
+bicho, no formato que já funcionou. Pegue o primeiro com `"used": false`.
+Nunca publique sem assunto; a reserva existe exatamente para isso.
+
+**O que não entra, por mais que esteja bombando:**
+- Pessoa real com nome (político, celebridade, influenciador, criador de caso
+  do dia). O canal fala de coisas, bichos e fenômenos, não de gente.
+- Personagem de desenho, game, filme ou marca — é material protegido e derruba
+  o vídeo nas três plataformas.
+- Política, eleição, religião, tragédia recente, crime, doença de alguém.
+- Qualquer piada em cima de grupo de pessoas.
+
+A piada do canal é com a expectativa do espectador, nunca com alguém.
 
 ### 2. Checar os fatos — passo que não se pula
-Cada número que entra no roteiro precisa de fonte. Procure na web e confirme
-em fonte confiável (publicação científica, museu, universidade, órgão
-ambiental). Wikipédia serve de ponto de partida, nunca de fonte final.
-Se um fato não se confirmar, troque o fato — nunca suavize com "dizem que".
+Trend é boato até se provar o contrário, e a maior parte do que viraliza chega
+distorcida. Cada número e cada afirmação do roteiro precisa de fonte confiável
+confirmada hoje (publicação científica, universidade, museu, órgão oficial,
+veículo sério). Reddit e X são a pista, nunca a fonte.
+
+Se o fato que fez o assunto viralizar for falso, você tem dois caminhos bons:
+usar o fato correto, ou fazer o vídeo justamente sobre o engano — o que
+costuma render mais. O que não existe é publicar o boato como verdade.
+
 Anote as fontes em `episodes/<id>/fontes.md`.
 
 ### 3. Escrever o roteiro
@@ -117,7 +146,8 @@ A legenda sai do roteiro: a virada, o fato mais forte, a pergunta do fecho e
 carregando o fato mais surpreendente.
 
 ### 8. Fechar
-Marque o tema como `"used": true` em `topics.json`, faça commit e mande ao
+Registre o assunto em `historico.json` (data, assunto, de onde veio). Se usou a
+lista reserva, marque `"used": true` em `topics.json`. Faça commit e mande ao
 usuário uma mensagem curta: qual foi o tema, o link do planner e qualquer
 coisa que tenha dado errado no caminho.
 
@@ -125,4 +155,6 @@ coisa que tenha dado errado no caminho.
 - Publicar número sem fonte conferida no dia.
 - Publicar sem as três marcações de conteúdo gerado por IA.
 - Gravar a chave do ElevenLabs em qualquer arquivo do repositório.
-- Repetir um bicho que já saiu nos últimos 30 episódios.
+- Repetir assunto que já está no `historico.json` dos últimos 30 dias.
+- Publicar boato de internet sem ter conferido em fonte séria.
+- Fazer vídeo sobre pessoa real com nome, ou em cima de algum grupo.
