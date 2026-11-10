@@ -1,5 +1,10 @@
 # Fábrica Gepeta — rotina diária
 
+> **O vídeo diário é sempre feito com o motor 3D** (Three.js, estilo do
+> episódio do baiacu) e vai para as três redes: YouTube Shorts, TikTok e
+> Instagram. O formato realista gerado na fal.ai **não é automático** — só
+> sai quando o Lucas pedir. A receita dele está em `RECEITA-FAL.md`.
+
 Este arquivo é a instrução completa de uma rodada. Uma sessão nova do Claude
 abre o repositório, lê isto e produz o vídeo do dia sozinha.
 
@@ -30,9 +35,11 @@ decidir, sempre, e em mais de um lugar:
 - X: assuntos do momento, principalmente os que viraram piada.
 - Busca na web pelo que explodiu nas últimas 24 a 48 horas.
 
-Procure o que serve ao formato: algo **visual**, que caiba em 50 segundos de
-animação low-poly, que tenha um fato surpreendente dentro e que aceite uma
-piada de duplo sentido na abertura. Um assunto só com gente falando, sem fato
+Procure o que serve ao formato: uma **curiosidade** com um fato surpreendente
+dentro, visual o bastante para virar cena 3D low-poly em 50 segundos, e que
+aceite uma piada de duplo sentido na abertura. O assunto pode vir da internet
+do dia, mas o vídeo é sempre uma curiosidade no modelo do baiacu — não é
+comentário sobre a treta em si. Um assunto só com gente falando, sem fato
 e sem imagem possível, não vira vídeo bom — descarte e pegue o próximo.
 
 Se nada do dia servir, use `topics.json`: é a lista reserva de curiosidades de
@@ -135,6 +142,8 @@ Confirme que a URL pública responde 200 antes de agendar.
 Depois `createScheduledPost` no Metricool, `blogId` 8005368, data de hoje às
 `15:00:00` em `America/Sao_Paulo`, `autoPublish: true`, as três redes, com o
 `media` apontando para a URL do raw.
+
+Um único post com as três redes juntas (`tiktok`, `instagram`, `youtube`).
 
 Obrigatório em toda publicação:
 - `tiktokData.isAigc: true` **e** `tiktokData.title` (o TikTok recusa sem título)
