@@ -21,6 +21,8 @@ Parar:       pm2 stop gepeta
 Como funciona: a cada 30s olha a pasta jobs/ procurando *.job.json.
 Tipos de tarefa:
   {"kind":"tts",  "id":"002-x", "text":"...", "voice":"<id>"}        -> out/<id>/narr.mp3 + align.json
+  {"kind":"fal",  "id":"tk-001-a", "model":"fal-ai/...",             -> out/<id>/<arquivos gerados>
+                  "input":{"prompt":"...","duration":"5"}}
   {"kind":"push", "repo":"/caminho/repo", "message":"...",            -> git add/commit/push
                   "files":["videos/x.mp4"]}
   {"kind":"probe"}                                                    -> out/probe/result.json (diagnostico)
@@ -43,6 +45,7 @@ JOBS = os.path.join(HERE, "jobs")
 OUT = os.path.join(HERE, "out")
 CFG = os.path.join(HERE, "config.env")
 API = "https://api.elevenlabs.io/v1"
+FAL_QUEUE = "https://queue.fal.run"
 MODEL = "eleven_multilingual_v2"
 POLL_SECONDS = 30
 
@@ -131,6 +134,102 @@ def job_tts(job, cfg):
     }
 
 
+def http_json(url, headers, payload=None, method="GET", timeout=120):
+    data = json.dumps(payload).encode() if payload is not None else None
+    req = urllib.request.Request(url, data=data, method=method)
+    for k, v in headers.items():
+        req.add_header(k, v)
+    if data:
+        req.add_header("Content-Type", "application/json")
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            body = r.read().decode()
+            return r.status, (json.loads(body) if body.strip() else {})
+    except urllib.error.HTTPError as e:
+        return e.code, {"error": e.read().decode(errors="replace")[:600]}
+    except Exception as e:
+        return 0, {"error": repr(e)}
+
+
+def collect_urls(obj, found=None):
+    """Acha toda chave 'url' em qualquer profundidade do JSON de resposta."""
+    found = [] if found is None else found
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k == "url" and isinstance(v, str) and v.startswith("http"):
+                found.append(v)
+            else:
+                collect_urls(v, found)
+    elif isinstance(obj, list):
+        for v in obj:
+            collect_urls(v, found)
+    return found
+
+
+def job_fal(job, cfg):
+    """Gera midia na fal.ai. O modelo e os parametros vem da tarefa, entao
+    trocar de modelo nao exige mexer neste arquivo."""
+    key = cfg.get("FAL_KEY")
+    if not key:
+        return {"ok": False, "detail": "FAL_KEY ausente em config.env"}
+    model = job.get("model") or cfg.get("FAL_MODEL")
+    if not model:
+        return {"ok": False, "detail": "sem modelo: passe 'model' na tarefa ou FAL_MODEL em config.env"}
+
+    jid = job.get("id", "sem-id")
+    dest = os.path.join(OUT, jid)
+    os.makedirs(dest, exist_ok=True)
+    headers = {"Authorization": "Key " + key}
+
+    log(f"fal {jid}: {model}")
+    status, body = http_json(f"{FAL_QUEUE}/{model}", headers, job.get("input", {}), "POST")
+    if status not in (200, 201, 202):
+        return {"ok": False, "status": status, "detail": str(body.get("error", body))[:400]}
+
+    status_url = body.get("status_url")
+    response_url = body.get("response_url")
+    req_id = body.get("request_id")
+    if not status_url:
+        return {"ok": False, "detail": "resposta sem status_url: " + str(body)[:300]}
+
+    deadline = time.time() + float(job.get("timeout_seconds", 900))
+    state = "IN_QUEUE"
+    while time.time() < deadline:
+        time.sleep(float(job.get("poll_seconds", 5)))
+        st, sb = http_json(status_url, headers)
+        state = sb.get("status", "?")
+        if state == "COMPLETED":
+            break
+        if state in ("FAILED", "ERROR", "CANCELLED"):
+            return {"ok": False, "detail": f"fal retornou {state}: " + str(sb)[:400]}
+        if st == 0:
+            log(f"  fal {jid}: erro de rede ao consultar, tentando de novo")
+    else:
+        return {"ok": False, "detail": f"tempo esgotado, ultimo estado {state}", "request_id": req_id}
+
+    st, result = http_json(response_url or status_url, headers)
+    if st != 200:
+        return {"ok": False, "status": st, "detail": str(result)[:400]}
+
+    saved = []
+    for i, url in enumerate(collect_urls(result)):
+        ext = os.path.splitext(url.split("?")[0])[1] or ".bin"
+        path = os.path.join(dest, f"{i:02d}{ext}")
+        try:
+            req = urllib.request.Request(url)
+            with urllib.request.urlopen(req, timeout=300) as r, open(path, "wb") as fh:
+                fh.write(r.read())
+            saved.append({"path": path, "bytes": os.path.getsize(path)})
+        except Exception as e:
+            saved.append({"path": path, "error": repr(e)})
+
+    with open(os.path.join(dest, "fal_response.json"), "w", encoding="utf-8") as fh:
+        json.dump(result, fh, ensure_ascii=False, indent=1)
+
+    return {"ok": bool(saved), "model": model, "request_id": req_id,
+            "files": saved, "detail": "" if saved else "resposta sem arquivo"}
+
+
 def job_push(job, cfg):
     repo = job["repo"]
     files = job.get("files") or ["-A"]
@@ -168,6 +267,8 @@ def job_probe(job, cfg):
         ]
     return {
         "ok": status == 200,
+        "fal_key_presente": bool(cfg.get("FAL_KEY")),
+        "fal_model": cfg.get("FAL_MODEL", ""),
         "subscription_status": status,
         "tier": sub.get("tier"),
         "limit": sub.get("character_limit"),
@@ -180,7 +281,7 @@ def job_probe(job, cfg):
     }
 
 
-HANDLERS = {"tts": job_tts, "push": job_push, "probe": job_probe}
+HANDLERS = {"tts": job_tts, "fal": job_fal, "push": job_push, "probe": job_probe}
 
 
 def process_once(cfg):
