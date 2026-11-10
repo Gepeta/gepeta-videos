@@ -1,0 +1,325 @@
+{
+ "nota": "Cada curiosidade e um CANDIDATO. Verificar em fonte confiavel no dia da producao antes de escrever o roteiro; se nao confirmar, trocar o fato.",
+ "topics": [
+  {
+   "id": "002-lesma-do-mar",
+   "assunto": "lesma-do-mar (Elysia)",
+   "tema": "mar",
+   "gancho_duplo_sentido": "algo que 'rouba' uma parte do outro e passa a viver disso",
+   "curiosidade_a_verificar": "rouba cloroplastos da alga e faz fotossintese por meses",
+   "used": false
+  },
+  {
+   "id": "003-polvo",
+   "assunto": "polvo",
+   "tema": "mar",
+   "gancho_duplo_sentido": "tem muitos bracos e nao sabe o que fazer com todos",
+   "curiosidade_a_verificar": "tres coracoes, sangue azul, neuronios espalhados pelos bracos",
+   "used": false
+  },
+  {
+   "id": "004-caracol-cone",
+   "assunto": "caracol-cone",
+   "tema": "mar",
+   "gancho_duplo_sentido": "parece lento e inofensivo, mas da o bote",
+   "curiosidade_a_verificar": "arpao venenoso; veneno estudado como analgesico potente",
+   "used": false
+  },
+  {
+   "id": "005-tardigrado",
+   "assunto": "tardigrado",
+   "tema": "noite",
+   "gancho_duplo_sentido": "aguenta qualquer posicao, qualquer temperatura",
+   "curiosidade_a_verificar": "sobrevive ao vacuo do espaco, congelamento e radiacao extrema",
+   "used": false
+  },
+  {
+   "id": "006-camarao-boxeador",
+   "assunto": "camarao-mantis",
+   "tema": "mar",
+   "gancho_duplo_sentido": "o soco mais rapido que voce ja levou",
+   "curiosidade_a_verificar": "soco a aceleracao de bala; cria bolha de cavitacao; visao de 12+ fotorreceptores",
+   "used": false
+  },
+  {
+   "id": "007-formiga-cortadeira",
+   "assunto": "formiga-cortadeira",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "carrega muito mais do que parece aguentar",
+   "curiosidade_a_verificar": "agricultura de fungo ha milhoes de anos; carrega multiplos do proprio peso",
+   "used": false
+  },
+  {
+   "id": "008-ornitorrinco",
+   "assunto": "ornitorrinco",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "nao sabe decidir o que e",
+   "curiosidade_a_verificar": "poe ovos, tem bico, produz leite, detecta eletricidade, macho tem esporao venenoso",
+   "used": false
+  },
+  {
+   "id": "009-axolote",
+   "assunto": "axolote",
+   "tema": "mar",
+   "gancho_duplo_sentido": "nunca cresce e esta tudo bem",
+   "curiosidade_a_verificar": "neotenia; regenera membros, medula e partes do cerebro",
+   "used": false
+  },
+  {
+   "id": "010-besouro-bombardeiro",
+   "assunto": "besouro-bombardeiro",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "solta um jato quente por tras quando se irrita",
+   "curiosidade_a_verificar": "mistura quimica a ~100 C disparada do abdomen",
+   "used": false
+  },
+  {
+   "id": "011-naked-mole-rat",
+   "assunto": "rato-toupeira-pelado",
+   "tema": "noite",
+   "gancho_duplo_sentido": "feio, pelado e vive muito mais do que devia",
+   "curiosidade_a_verificar": "quase nao desenvolve cancer; vive decadas; tolera baixo oxigenio",
+   "used": false
+  },
+  {
+   "id": "012-agua-viva-imortal",
+   "assunto": "agua-viva Turritopsis",
+   "tema": "mar",
+   "gancho_duplo_sentido": "volta a ser jovem quando a vida aperta",
+   "curiosidade_a_verificar": "reverte ao estagio de polipo; biologicamente imortal em condicoes certas",
+   "used": false
+  },
+  {
+   "id": "013-peixe-pescador",
+   "assunto": "peixe-pescador abissal",
+   "tema": "noite",
+   "gancho_duplo_sentido": "o macho gruda e nunca mais larga",
+   "curiosidade_a_verificar": "macho se funde a femea e vira fonte de esperma; isca bioluminescente",
+   "used": false
+  },
+  {
+   "id": "014-corvo",
+   "assunto": "corvo",
+   "tema": "noite",
+   "gancho_duplo_sentido": "guarda rancor de quem mexeu com ele",
+   "curiosidade_a_verificar": "reconhece rostos humanos por anos; fabrica ferramentas; conta ate certo numero",
+   "used": false
+  },
+  {
+   "id": "015-escaravelho-rola-bosta",
+   "assunto": "escaravelho rola-bosta",
+   "tema": "deserto",
+   "gancho_duplo_sentido": "trabalha a noite toda empurrando a bola",
+   "curiosidade_a_verificar": "se orienta pela Via Lactea para rolar em linha reta",
+   "used": false
+  },
+  {
+   "id": "016-camaleao",
+   "assunto": "camaleao",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "muda de cor dependendo de quem esta olhando",
+   "curiosidade_a_verificar": "cristais de guanina na pele; cor e sinal social e termico, nao camuflagem pura",
+   "used": false
+  },
+  {
+   "id": "017-tatu-bola",
+   "assunto": "tatu-bola",
+   "tema": "deserto",
+   "gancho_duplo_sentido": "fica durinho quando se assusta",
+   "curiosidade_a_verificar": "unica especie que fecha em esfera perfeita; simbolo da Caatinga",
+   "used": false
+  },
+  {
+   "id": "018-preguica",
+   "assunto": "preguica",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "demora tanto que da ate vergonha",
+   "curiosidade_a_verificar": "digestao de semanas; desce para defecar; mariposas e algas no pelo",
+   "used": false
+  },
+  {
+   "id": "019-abelha",
+   "assunto": "abelha",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "danca pra explicar onde esta a coisa boa",
+   "curiosidade_a_verificar": "danca do requebrado comunica direcao e distancia",
+   "used": false
+  },
+  {
+   "id": "020-pinguim-imperador",
+   "assunto": "pinguim-imperador",
+   "tema": "noite",
+   "gancho_duplo_sentido": "segura por meses sem soltar",
+   "curiosidade_a_verificar": "macho equilibra o ovo nos pes durante o inverno antartico, em jejum",
+   "used": false
+  },
+  {
+   "id": "021-peixe-arqueiro",
+   "assunto": "peixe-arqueiro",
+   "tema": "mar",
+   "gancho_duplo_sentido": "acerta de longe com um jato certeiro",
+   "curiosidade_a_verificar": "cuspe de agua derruba insetos; corrige a refracao da agua",
+   "used": false
+  },
+  {
+   "id": "022-morcego-vampiro",
+   "assunto": "morcego-vampiro",
+   "tema": "noite",
+   "gancho_duplo_sentido": "divide o jantar com quem passou aperto",
+   "curiosidade_a_verificar": "regurgita sangue para companheiro faminto; reciprocidade social",
+   "used": false
+  },
+  {
+   "id": "023-caranguejo-ermitao",
+   "assunto": "caranguejo-ermitao",
+   "tema": "mar",
+   "gancho_duplo_sentido": "troca de casa quando o tamanho nao serve mais",
+   "curiosidade_a_verificar": "fila de troca de conchas por ordem de tamanho",
+   "used": false
+  },
+  {
+   "id": "024-lagarto-do-deserto",
+   "assunto": "moloch do deserto",
+   "tema": "deserto",
+   "gancho_duplo_sentido": "absorve pela pele o que precisa",
+   "curiosidade_a_verificar": "canais capilares na pele levam agua ate a boca",
+   "used": false
+  },
+  {
+   "id": "025-cavalo-marinho",
+   "assunto": "cavalo-marinho",
+   "tema": "mar",
+   "gancho_duplo_sentido": "aqui quem engravida e o macho",
+   "curiosidade_a_verificar": "macho gesta os ovos em bolsa ventral",
+   "used": false
+  },
+  {
+   "id": "026-joaninha",
+   "assunto": "joaninha",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "finge estar morta quando a coisa aperta",
+   "curiosidade_a_verificar": "tanatose e sangria reflexa de liquido amargo",
+   "used": false
+  },
+  {
+   "id": "027-tubarao-da-groenlandia",
+   "assunto": "tubarao-da-Groenlandia",
+   "tema": "noite",
+   "gancho_duplo_sentido": "tao velho que viu coisa demais",
+   "curiosidade_a_verificar": "pode passar de 250 anos; maturidade sexual por volta do seculo de vida",
+   "used": false
+  },
+  {
+   "id": "028-aranha-pavao",
+   "assunto": "aranha-pavao",
+   "tema": "deserto",
+   "gancho_duplo_sentido": "faz a dancinha toda pra impressionar",
+   "curiosidade_a_verificar": "macho levanta abdomen colorido e danca; errar custa a vida",
+   "used": false
+  },
+  {
+   "id": "029-ourico-do-mar",
+   "assunto": "ourico-do-mar",
+   "tema": "mar",
+   "gancho_duplo_sentido": "cheio de espinho mas tem lado mole",
+   "curiosidade_a_verificar": "anda com pes ambulacrarios; dentes de Aristoteles raspam rocha",
+   "used": false
+  },
+  {
+   "id": "030-colibri",
+   "assunto": "beija-flor",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "vai e volta rapido demais",
+   "curiosidade_a_verificar": "bate asas dezenas de vezes por segundo; torpor noturno; voa de re",
+   "used": false
+  },
+  {
+   "id": "031-lula-vampira",
+   "assunto": "lula-vampira",
+   "tema": "noite",
+   "gancho_duplo_sentido": "se vira do avesso quando se assusta",
+   "curiosidade_a_verificar": "inverte os bracos como capa; solta muco bioluminescente em vez de tinta",
+   "used": false
+  },
+  {
+   "id": "032-ornitodoro",
+   "assunto": "barata",
+   "tema": "noite",
+   "gancho_duplo_sentido": "sobrevive a tudo que jogam nela",
+   "curiosidade_a_verificar": "vive dias sem cabeca; tolera radiacao maior que a humana",
+   "used": false
+  },
+  {
+   "id": "033-peixe-palhaco",
+   "assunto": "peixe-palhaco",
+   "tema": "mar",
+   "gancho_duplo_sentido": "troca de papel quando precisa",
+   "curiosidade_a_verificar": "hermafrodita sequencial: macho vira femea dominante",
+   "used": false
+  },
+  {
+   "id": "034-coala",
+   "assunto": "coala",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "dorme o dia inteiro e ninguem reclama",
+   "curiosidade_a_verificar": "ate 20h de sono; dieta de eucalipto toxico; impressao digital quase humana",
+   "used": false
+  },
+  {
+   "id": "035-orca",
+   "assunto": "orca",
+   "tema": "mar",
+   "gancho_duplo_sentido": "a matriarca manda e todo mundo obedece",
+   "curiosidade_a_verificar": "menopausa e lideranca de femeas idosas; dialetos por grupo",
+   "used": false
+  },
+  {
+   "id": "036-sapo-de-vidro",
+   "assunto": "sapo-de-vidro",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "da pra ver tudo por dentro",
+   "curiosidade_a_verificar": "pele ventral transparente; esconde hemacias no figado pra dormir invisivel",
+   "used": false
+  },
+  {
+   "id": "037-fungo-cordyceps",
+   "assunto": "fungo Cordyceps",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "assume o controle do corpo do outro",
+   "curiosidade_a_verificar": "manipula comportamento da formiga ate a mordida final",
+   "used": false
+  },
+  {
+   "id": "038-peixe-boi",
+   "assunto": "peixe-boi",
+   "tema": "mar",
+   "gancho_duplo_sentido": "gordo, lento e ninguem mexe com ele",
+   "curiosidade_a_verificar": "troca dentes a vida toda; parente proximo do elefante",
+   "used": false
+  },
+  {
+   "id": "039-suricato",
+   "assunto": "suricato",
+   "tema": "deserto",
+   "gancho_duplo_sentido": "sempre tem um de olho enquanto os outros trabalham",
+   "curiosidade_a_verificar": "sentinela reveza vigia; imunidade a veneno de escorpiao",
+   "used": false
+  },
+  {
+   "id": "040-tubarao-martelo",
+   "assunto": "tubarao-martelo",
+   "tema": "mar",
+   "gancho_duplo_sentido": "a cabeca dele e de um jeito que da o que falar",
+   "curiosidade_a_verificar": "cefalofolio amplia sensores eletricos; visao de quase 360 graus",
+   "used": false
+  },
+  {
+   "id": "041-formiga-bala",
+   "assunto": "formiga-bala",
+   "tema": "floresta",
+   "gancho_duplo_sentido": "a ferroada que ninguem esquece",
+   "curiosidade_a_verificar": "topo da escala de dor de Schmidt; ritual de iniciacao Satere-Mawe",
+   "used": false
+  }
+ ]
+}
