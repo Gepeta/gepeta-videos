@@ -12,8 +12,13 @@ A chave da API nunca sai daqui: e lida de config.env, nesta pasta.
 
 Instalacao (uma vez, com pm2 que voce ja tem):
     cd ~/Documents/fabrica/videos
-    pm2 start gepeta_agent.py --name gepeta --interpreter python3 -- --watch
+    pm2 start gepeta_agent.py --name gepeta --interpreter python3 --no-watch
     pm2 save
+
+NUNCA inicie com a flag --watch do pm2: o agente escreve arquivos nesta mesma
+pasta, o pm2 enxerga a mudanca, reinicia o processo no meio do trabalho e a
+tarefa pendente e reenviada - o que vira cobranca duplicada na fal.
+Por isso o modo continuo agora e o padrao e nao precisa de flag nenhuma.
 
 Verificar:   pm2 logs gepeta
 Parar:       pm2 stop gepeta
@@ -336,13 +341,28 @@ def process_once(cfg):
     return len(pending)
 
 
+def single_instance():
+    """Impede duas copias do agente rodando ao mesmo tempo."""
+    lock = os.path.join(HERE, ".agent.pid")
+    if os.path.exists(lock):
+        try:
+            old = int(open(lock).read().strip())
+            os.kill(old, 0)
+            raise SystemExit(f"ja existe um agente rodando (pid {old}); saindo")
+        except (ValueError, ProcessLookupError, PermissionError):
+            pass
+    with open(lock, "w") as fh:
+        fh.write(str(os.getpid()))
+
+
 def main():
     cfg = load_cfg()
-    watch = "--watch" in sys.argv
-    log("agente gepeta iniciado", "(watch)" if watch else "(uma passada)")
+    single_instance()
+    once = "--once" in sys.argv
+    log("agente gepeta iniciado", "(uma passada)" if once else "(continuo)")
     n = process_once(cfg)
     log(n, "tarefa(s) processada(s)")
-    while watch:
+    while not once:
         time.sleep(POLL_SECONDS)
         try:
             process_once(cfg)
