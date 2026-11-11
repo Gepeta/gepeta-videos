@@ -1,0 +1,28 @@
+# (shot, texto da legenda, texto falado)
+# shots: queda, cardume, erro, calma, pe, especies, seca, segredo, medo, predadores,
+#        estresse, juntas, cagao, mordida, latido, saida, outro
+P = [
+    ("queda",      "Você caiu num rio cheio de piranhas. O que você faz?", None),
+    ("cardume",    "Pensa rápido, porque quase todo mundo faz a coisa errada.", None),
+    ("erro",       "Bate os braços, chuta e espirra água pra todo lado.", None),
+    ("erro",       "E é justamente isso que atrai mordida.", None),
+    ("calma",      "O certo é o contrário. Movimento lento, sem espirrar, direto pra margem.", None),
+    ("pe",         "E se uma morder, quase sempre é uma beliscada no pé ou na mão.", None),
+    ("pe",         "Morte por ataque de piranha é raríssima.", None),
+    ("especies",   "Das umas 25 espécies, só duas ou três são perigosas pra gente.",
+                   "Das umas vinte e cinco espécies, só duas ou três são perigosas pra gente."),
+    ("seca",       "O perigo aumenta na seca, quando o rio baixa e elas ficam apertadas e com fome.", None),
+    ("segredo",    "Mas agora vem a parte que ninguém te conta.", None),
+    ("medo",       "Esse cardume não tá ali pra te caçar. Tá ali porque elas morrem de medo.", None),
+    ("predadores", "De jacaré, de boto, de biguá.", None),
+    ("estresse",   "Em grupo pequeno, a piranha fica tão estressada que respira mais rápido.", None),
+    ("juntas",     "Por isso elas andam juntas, uma escondida atrás da outra.", None),
+    ("cagao",      "O peixe mais temido do Brasil é, no fundo, um cagão.", None),
+    ("mordida",    "Mas não se engana. A piranha-preta morde com força de 30 vezes o próprio peso.",
+                   "Mas não se engana. A piranha-preta morde com força de trinta vezes o próprio peso."),
+    ("mordida",    "Pro tamanho dela, é a mordida mais forte entre os peixes ósseos.", None),
+    ("latido",     "E antes de brigar, a piranha-vermelha avisa. Ela late.", None),
+    ("latido",     "Vibra a bexiga natatória e solta um latido pra espantar as outras.", None),
+    ("saida",      "Então, se cair no rio: calma, devagar, e sai pela margem.", None),
+    ("outro",      "E aí, você ia ficar calmo ou ia sair espirrando água igual doido? Comenta aí.", None),
+]
