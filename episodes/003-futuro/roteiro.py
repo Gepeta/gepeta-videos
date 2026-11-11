@@ -17,7 +17,6 @@ P = [
     ("celular",  "Já sabe o que diz. E já sabe que vai ficar no vácuo.", None),
     ("problema", "Só que agora você vive em dois tempos.", None),
     ("problema", "Ri da piada antes do seu amigo terminar de contar.", None),
-    ("problema", "Responde pergunta que ninguém fez ainda.", None),
     ("problema", "E todo mundo começa a te achar estranho.", None),
     ("virada",   "Até que você descobre uma coisa que muda tudo.", None),
     ("virada",   "Você sempre viveu no passado.", None),

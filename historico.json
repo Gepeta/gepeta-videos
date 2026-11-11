@@ -5,19 +5,29 @@
    "id": "001-baiacu",
    "data": "2026-11-10",
    "assunto": "baiacu: mandala de areia e tetrodotoxina",
-   "origem": "reserva"
+   "origem": "reserva",
+   "formato": "A"
   },
   {
    "id": "002-polvo",
    "data": "2026-11-10",
    "assunto": "polvo: tres coracoes, neuronios nos bracos, fuga do Inky, femea que choca 53 meses",
-   "origem": "reserva (topics.json)"
+   "origem": "reserva (topics.json)",
+   "formato": "A"
   },
   {
    "id": "001b-baiacu-65s",
    "data": "2026-11-10",
    "assunto": "baiacu, corte estendido 65s: acrescenta o bico de quatro dentes e a origem bacteriana do veneno",
-   "origem": "refacao do 001 para passar do minuto exigido pelo TikTok"
+   "origem": "refacao do 001 para passar do minuto exigido pelo TikTok",
+   "formato": "A"
+  },
+  {
+   "id": "003-futuro",
+   "data": "2026-11-11",
+   "formato": "B",
+   "assunto": "POV: e se voce acordasse vendo 10 segundos no futuro (virada: cerebro vive 80 ms no passado)",
+   "origem": "pedido do Lucas, inspirado em video de POV; poder original"
   }
  ]
 }

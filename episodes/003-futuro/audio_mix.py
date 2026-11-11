@@ -68,7 +68,7 @@ def glitch(at, g=0.25):
 
 
 def clink(at, g=0.35):
-    put(sfx, tone(2600, 0.5, 9, (1, 0.6, 0.3)) + tone(3900, 0.4, 12), at, g)
+    put(sfx, tone(2600, 0.5, 9, (1, 0.6, 0.3)), at, g); put(sfx, tone(3900, 0.4, 12), at, g * 0.8)
 
 
 def carpass(at, g=0.45):
