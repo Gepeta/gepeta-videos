@@ -16,6 +16,30 @@ use o outro — o sorteio não pode virar sequência.
 Um bicho ou fenômeno real, piada de duplo sentido na abertura, narração em
 voz, animação low-poly. É o formato descrito no resto deste arquivo.
 
+**C — "Se você fosse um…"** (motor Three.js, mesmo do formato A)
+Mesma produção do formato A, outra pessoa gramatical: em vez de *"o polvo
+tem três corações"*, é *"se você fosse um polvo, você teria três corações"*.
+O espectador vira o sujeito do vídeo, e isso muda o comportamento dele.
+
+Por que vale: no canal de referência desse formato, um vídeo com 460 mil
+visualizações teve **31 mil compartilhamentos** — quase 7% de quem viu
+mandou pra alguém. É taxa altíssima, e o motivo é mecânico: "se você fosse
+uma anta" é marcável. A pessoa manda pro amigo e escreve "é você". Nenhum
+vídeo em terceira pessoa consegue isso.
+
+Regras do formato:
+- Título e legenda sempre na forma da pergunta: "e se você fosse um X?".
+- Bicho **brasileiro** sempre que der (anta, capivara, piranha, tamanduá,
+  jacaré, urubu, tatu). Fauna local rende mais com público brasileiro.
+- A narração fala com "você" do começo ao fim. As consequências são físicas
+  e checadas: o que você comeria, quanto aguentaria sem respirar, o que te
+  mataria primeiro.
+- Fecho vira a pergunta contra quem assiste: "e aí, aguentaria?".
+- Duração 65 a 80 segundos.
+- **Não** construa o vídeo em cima de apelido que seja xingamento de grupo
+  de pessoas. "Anta" e "burro" são ofensas genéricas e podem; palavra que
+  serve de xingamento contra um grupo, não — não importa quanta view dê.
+
 **B — História em 2D de legenda** (canvas 2D, sem narração obrigatória)
 Formato dos canais de referência: vetor chapado, traço grosso, fundo escuro
 com uma cor de destaque, contado inteiro por **legenda na tela**, de forma que
