@@ -59,8 +59,13 @@ próximo número. Use de 3 a 5.
 Duração: **75 a 85 segundos**. Os canais de referência todos ficam nessa faixa.
 Acima do minuto do TikTok com folga, e o formato de legenda aguenta esse tempo.
 
-Produzir: desenhe em canvas 2D e renderize com o mesmo `render.mjs`, que é
-agnóstico de cena. Sai muito mais rápido que o 3D — é desenho chapado, não
+Produzir: **parta de `episodes/003-futuro/index.html`** — ele é o kit de
+desenho do formato (personagem com sombra e respiração, `shape`/`shade` com
+traço colorido, luz, poeira, cartões de capítulo em cortina, íris entre
+planos, legenda e grão). Troque só as cenas. Para os cartões respirarem, rode
+`tools/insert_pauses.py` depois do `align_to_timeline.py`. Renderize com o
+mesmo `render.mjs`, que é agnóstico de cena, e recomprima com `-crf 23`
+antes de publicar: o grão deixa o arquivo pesado. Sai muito mais rápido que o 3D — é desenho chapado, não
 tem luz nem sombra pra calcular.
 
 ### Palavrão
