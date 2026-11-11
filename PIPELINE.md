@@ -79,7 +79,7 @@ xingamento dirigido a alguém, nunca.
 Este arquivo é a instrução completa de uma rodada. Uma sessão nova do Claude
 abre o repositório, lê isto e produz o vídeo do dia sozinha.
 
-**Publicação: todo dia às 15h (America/Sao_Paulo). Disparo da produção: 8h34.**
+**Publicação: todo dia às 15h (America/Sao_Paulo). Disparo da produção: 12h35 (o PC do Lucas costuma estar desligado de manhã).**
 
 ## Peças fixas
 
