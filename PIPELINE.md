@@ -259,12 +259,21 @@ Depois `createScheduledPost` no Metricool, `blogId` 8005368, data de hoje às
 `15:00:00` em `America/Sao_Paulo`, `autoPublish: true`, as três redes, com o
 `media` apontando para a URL do raw.
 
-Um único post com as três redes juntas (`tiktok`, `instagram`, `youtube`).
+Três posts separados, um por rede, cada um com a descrição própria (ver
+"Padrão de produção", item 9).
 
-Obrigatório em toda publicação:
-- `tiktokData.isAigc: true` **e** `tiktokData.title` (o TikTok recusa sem título)
-- `instagramData`: `{"type": "REEL", "isAiGenerated": true}`
-- `youtubeData`: `{"type": "short", "madeForKids": false, "isAiGeneratedContent": true}`
+Campos obrigatórios:
+- `tiktokData.title` (o TikTok recusa sem título)
+- `instagramData`: `{"type": "REEL"}`
+- `youtubeData`: `{"type": "short", "madeForKids": false}`
+
+**Marcação de IA (decisão do Lucas em 12/11/2026):** os vídeos de animação
+feitos no motor próprio (3D em blocos e 2D) **não** levam a marcação de
+conteúdo gerado por IA: não envie `isAigc`, `isAiGenerated` nem
+`isAiGeneratedContent`. As regras das redes pedem a marcação para conteúdo
+realista que pode passar por real; animação claramente irreal fica de fora.
+A exceção é o formato realista da fal.ai (`RECEITA-FAL.md`): esse continua
+marcado, porque é o caso que as redes exigem e punem.
 
 A legenda sai do roteiro: a virada, o fato mais forte, a pergunta do fecho e
 4 ou 5 hashtags. Título do TikTok e do YouTube escritos separados, cada um
@@ -278,7 +287,7 @@ coisa que tenha dado errado no caminho.
 
 ## O que nunca se faz
 - Publicar número sem fonte conferida no dia.
-- Publicar sem as três marcações de conteúdo gerado por IA.
+- Publicar vídeo realista da fal.ai sem a marcação de conteúdo gerado por IA (animação do motor próprio não leva marcação).
 - Gravar a chave do ElevenLabs em qualquer arquivo do repositório.
 - Repetir assunto que já está no `historico.json` dos últimos 30 dias.
 - Publicar boato de internet sem ter conferido em fonte séria.
