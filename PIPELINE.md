@@ -6,6 +6,51 @@
 > na fal.ai **não é automático** — só sai quando o Lucas pedir. A receita dele
 > está em `RECEITA-FAL.md`.
 
+## Padrão de produção (vale para todo vídeo 3D a partir de 12/11/2026)
+
+Definido pelo Lucas depois de olhar os números das três redes. Os formatos A e
+C continuam existindo, mas todo vídeo 3D passa a seguir isto:
+
+1. **Abertura**: uma frase que levanta dúvida **e** tem duplo sentido leve
+   (modelo: "E se você tivesse 60 centímetros de língua?"). A pergunta aparece
+   escrita na tela já no primeiro quadro. Nada de introdução lenta.
+2. **A dúvida só fecha no fim**: virada depois do meio ("agora a parte que
+   ninguém espera") e pergunta final que pede comentário.
+3. **Engraçado**. Palavrão moderado, pelas regras da seção "Palavrão".
+4. **Visual**: estilo de blocos arredondados (tipo Roblox) para personagens e
+   bichos, com sombra suave, oclusão de ambiente, brilho, grão e vinheta.
+   O **Gepeta** (careca, óculos escuros, roupa e tênis pretos) é o personagem
+   do canal: abre e fecha o vídeo no corredor de subsolo e faz o papel do
+   "você" nos vídeos de "E se".
+5. **Edição**: corte ou mudança de plano a cada 2–3 s, cada fato vira um
+   elemento na tela (contador, régua, carimbo, raio-x, etiqueta com seta).
+6. **Som**: ambiente por cenário, um efeito para cada ação e cada elemento
+   que entra na tela, música que muda na virada. A narração manda: o fundo
+   fica em torno de −13 dB em relação à voz (o `audio_mix.py` imprime isso).
+7. **Legenda**: blocos de até 3 palavras, caixa alta, palavra falada destacada
+   em cor (amarelo padrão, vermelho para perigo, verde para número).
+8. **O que cada rede prefere**: no TikTok o "E se" rendeu mais; no YouTube
+   Shorts, bicho. Junte os dois sempre que der: "E se você…" respondido por
+   um bicho, de preferência brasileiro.
+9. **Descrição própria por rede** (três posts separados no Metricool):
+   TikTok curto, com a pergunta e 4–5 hashtags; YouTube com título de até
+   ~60 caracteres começando pela pergunta, descrição com as palavras de busca
+   e `#shorts`; Instagram com gancho na primeira linha e pedido de envio
+   ("manda pra aquele amigo…"). Palavrão nunca em título ou descrição.
+
+**Kit base: `episodes/006-tamandua/`**. Parta dele: `index.html` já tem o
+Gepeta com fala sincronizada (`mouth.json`), o corredor, o cerrado, a função
+`makeBigAnt`, raio-x, pós-processamento, legendas e os helpers de tela
+(`pill`, `stamp`, `ruler`, `tag`, `hud`). `audio_mix.py` tem os efeitos
+prontos. Render (um processo só; dois em paralelo não ganham nada aqui):
+
+```
+Q='?s=0.6667&ao=4&as=0.4&env=0' node render.mjs video video.mp4
+```
+
+Leva ~1 s por quadro: um vídeo de 70 s sai em 35–45 min. Conte com isso no
+horário. Antes do render completo, sempre a folha de prévia.
+
 ## Formato do dia
 
 Sorteie no começo da rodada, com peso igual, e registre qual saiu no
