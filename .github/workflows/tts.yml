@@ -1,0 +1,24 @@
+name: narracao
+on:
+  push:
+    paths: ["tts-jobs/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: narracao
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gerar voz
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python3 tools/tts_cloud.py
+      - name: Salvar resultado
+        if: always()
+        run: |
+          git config user.name "gepeta-bot"
+          git config user.email "gepeta-bot@users.noreply.github.com"
+          git add tts-out || true
+          git diff --cached --quiet || (git commit -m "narracao gerada" && git pull --rebase && git push)
