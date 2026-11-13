@@ -317,3 +317,23 @@ A rotina diária NÃO usa mais o agente do PC. Para narrar:
 2. O workflow `.github/workflows/tts.yml` (GitHub Actions, segredo ELEVENLABS_API_KEY) gera `tts-out/<id>/narr.mp3`, `align.json` (mesmo formato do agente) e `result.json`, e faz commit.
 3. Faça `git pull` a cada 30 s (até 10 min) até existir `tts-out/<id>/result.json`. Se `ok` for false, pare e avise.
 Para refazer a narração, use um id novo (ex.: `<id>-v2`).
+
+## Rotina 100% na nuvem (13/11, versão final)
+- O PC não participa mais de nada. fal.ai foi abandonado: nunca usar.
+- Modelo: Fable. Estilo fixo: maquete do 008-capivara (qualidade alta e barato). Ironia, duplo sentido leve e palavrão controlado (1–2, só na virada, nunca nos primeiros 10 s nem em título/legenda).
+- Um vídeo por dia. Cortes: TikTok = versão longa (>61 s, monetização); YouTube Shorts e Instagram Reels = corte curto.
+
+### Horários de publicação (America/Sao_Paulo)
+Base: dados de atividade do Metricool para as três redes (picos repetidos em todos os dias da semana) + estudos de 2026 para o Brasil.
+| Rede | Horário | Por quê |
+|---|---|---|
+| Instagram Reels | 10:00 | pico de atividade do Metricool de seg a sáb; 18h é o 2º pico |
+| YouTube Shorts | 16:00 | pico em todos os dias da semana no Metricool |
+| TikTok | 18:00 | pico de seg/ter e 2º pico nos outros dias; no Brasil o consumo do TikTok concentra-se no início da noite |
+Regra de atraso: na hora de agendar, se o horário de uma rede já passou ou faltam menos de 10 min, publique essa rede agora (+5 min). As outras seguem no horário.
+
+### Progresso e retomada (status/AAAA-MM-DD.json)
+A rotina grava e faz push de `status/<data>.json` a cada etapa: `{"id":..., "etapa":"roteiro|narracao|render|cortes|publicado", "atualizado":"<ISO>"}`, junto com os arquivos da etapa (roteiro.py, scene.js, timeline.json etc. em episodes/<id>/). A tarefa de resgate usa isso para terminar um vídeo interrompido (por exemplo, quando o limite de uso do modelo acaba no meio). Só retome se `atualizado` tiver mais de 60 min; se for mais recente, outra execução está trabalhando: saia sem fazer nada.
+
+### Aprendizado contínuo
+Antes de escolher o tema, veja no Metricool as métricas dos últimos 7 dias (views por vídeo em cada rede) e anote em `aprendizados.md` (uma linha por dia) o que foi melhor/pior e o que ajustar. Use isso para escolher tema e gancho. Ideias: bicho brasileiro + "E se…" curioso; pesquise o que está em alta.
