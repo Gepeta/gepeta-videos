@@ -51,6 +51,24 @@ Q='?s=0.6667&ao=4&as=0.4&env=0' node render.mjs video video.mp4
 Leva ~1 s por quadro: um vídeo de 70 s sai em 35–45 min. Conte com isso no
 horário. Antes do render completo, sempre a folha de prévia.
 
+## Estilo "maquete" e regra de corte por rede (a partir de 13/11/2026)
+
+Pedido do Lucas depois do vídeo do Sol: estilo mais bonito e mais rápido de
+renderizar, e duração diferente por rede.
+
+- **Estilo maquete** (kit: `episodes/008-capivara/`, `scene.js` + `build.py`):
+  ilha flutuante vista por câmera isométrica, material toon com contorno,
+  céu em degradê desenhado em 2D, sem oclusão nem brilho. Render em 1080p
+  nativo a ~0,8 s por quadro (um vídeo de 63 s sai em ~25 min). É o estilo
+  padrão para vídeo de bicho. O kit `006-tamandua` (corredor + Gepeta) fica
+  para quando o roteiro pedir o Gepeta como protagonista.
+- **Um roteiro, dois cortes**: a parte A (20–30 s) fecha sozinha, com chamada
+  própria, e vira o **YouTube Shorts e o Reels**. A + B (parte extra que
+  começa com "mas calma…") passa de 61 s e vai para o **TikTok**. Renderiza
+  uma vez e corta com ffmpeg no início da parte B.
+- **Um vídeo por dia.** Em 11 e 12/11 o segundo vídeo do dia saiu muito pior
+  (piranha: 39 views no TikTok; Sol: 12 views no YouTube, 0% de feed).
+
 ## Formato do dia
 
 Sorteie no começo da rodada, com peso igual, e registre qual saiu no
