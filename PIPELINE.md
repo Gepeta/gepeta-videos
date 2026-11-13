@@ -310,3 +310,10 @@ coisa que tenha dado errado no caminho.
 - Repetir assunto que já está no `historico.json` dos últimos 30 dias.
 - Publicar boato de internet sem ter conferido em fonte séria.
 - Fazer vídeo sobre pessoa real com nome, ou em cima de algum grupo.
+
+## Narração sem o PC (13/11)
+A rotina diária NÃO usa mais o agente do PC. Para narrar:
+1. Grave `tts-jobs/<id>.job.json` com `{"kind":"tts","id":"<id>","text":"..."}` (voz padrão 7lu3ze7orhWaNeSPowWx, eleven_multilingual_v2), commit e push.
+2. O workflow `.github/workflows/tts.yml` (GitHub Actions, segredo ELEVENLABS_API_KEY) gera `tts-out/<id>/narr.mp3`, `align.json` (mesmo formato do agente) e `result.json`, e faz commit.
+3. Faça `git pull` a cada 30 s (até 10 min) até existir `tts-out/<id>/result.json`. Se `ok` for false, pare e avise.
+Para refazer a narração, use um id novo (ex.: `<id>-v2`).
