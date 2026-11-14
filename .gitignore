@@ -3,3 +3,9 @@ episodes/*/frames/
 episodes/*/*.wav
 episodes/*/preview_*.jpg
 config.env
+node_modules
+episodes/*/audio/
+episodes/*/render.log
+episodes/*/video*.mp4
+episodes/*/prev_*.jpg
+episodes/*/sheet.jpg
