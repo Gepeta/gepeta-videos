@@ -1,0 +1,9 @@
+total 66.31 [["abre",0,4.76],["calma",4.76,8.09],["semana",8.09,12.5],["desce",12.5,17.09],["risco",17.09,20.83],["fimA",20.83,24.87],["lenta",24.87,29.18],["verde",29.18,33.76],["ovos",33.76,38.12],["nada",38.12,43.57],["folego",43.57,46.22],["ponta",46.22,48.98],["cabeca",48.98,52.39],["sono",52.39,58.43],["fimB",58.43,66.31]]
+frame 0 / 1989 1389 ms/f
+PAGE [.WebGL-0x1374001aec00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+PAGE [.WebGL-0x1374001aec00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+PAGE [.WebGL-0x1374001aec00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+PAGE [.WebGL-0x1374001aec00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+frame 60 / 1989 798 ms/f
+frame 120 / 1989 851 ms/f
+frame 180 / 1989 833 ms/f

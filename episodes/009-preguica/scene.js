@@ -180,10 +180,10 @@ function staging(t) {
   if (N === 'abre') {
     setMood('day'); HANG(t); miniAt(t, 2.3, -0.9, -2.2);
     const z = sm(S, S + 2.2, t); const c2 = t > T.descer - 0.1;
-    cam(lerp(0.75, 0.5, k), 0.5, c2 ? lerp(11.5, 12.2, sm(T.descer, E, t)) : lerp(19, 8.6, z), V(0, c2 ? 2.1 : lerp(-0.4, 2.6, z), -1.6), c2 ? T.descer - 0.1 : undefined);
-    ov.push(() => { pill([{ txt: 'E SE VOCÊ SÓ FIZESSE', size: 62 }, { txt: '1 VEZ POR SEMANA?', size: 90, c: '#ffe03a' }], W / 2, 290, 0.03);
+    cam(lerp(0.75, 0.5, k), 0.5, c2 ? lerp(11.5, 12.2, sm(T.descer, E, t)) : lerp(13, 8.6, z), V(-0.2, c2 ? 2.1 : lerp(1.4, 2.6, z), -1.6), c2 ? T.descer - 0.1 : undefined);
+    ov.push(() => { pill([{ txt: 'E SE VOCÊ SÓ FIZESSE', size: 62 }, { txt: '1 VEZ POR SEMANA?', size: 90, c: '#ffe03a' }], W / 2, 290, -1);
       if (c2) { const a = scr(V(HX + 1.0, BY - 1.9, TZ)), b = scr(V(HX + 1.0, 0.1, TZ)); const q = sm(T.descer - 0.1, T.descer + 0.5, t); const e = [a[0], lerp(a[1], b[1], q)]; line2(a, e, '#ff5548', 12, [30, 22]); ctx.save(); ctx.fillStyle = '#ff5548'; ctx.strokeStyle = '#0d0d0d'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(e[0] - 30, e[1] - 6); ctx.lineTo(e[0] + 30, e[1] - 6); ctx.lineTo(e[0], e[1] + 40); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
-        pill([{ txt: 'descer tudo isso', size: 46, c: '#ff5548' }], a[0] + 190, (a[1] + b[1]) / 2, T.descer + 0.2, { rot: 0.03 }); const mp = scr(V(2.3, 2.1, -0.9)); txt('?', mp[0], mp[1] - 20, 130, { c: '#ffe03a', s: back((t - T.descer) / 0.25), rot: 0.15 * Math.sin(t * 6) }); } });
+        pill([{ txt: 'descer tudo isso', size: 46, c: '#ff5548' }], Math.min(a[0] + 190, W - 285), (a[1] + b[1]) / 2 + 130, T.descer + 0.2, { rot: 0.03 }); const mp = scr(V(2.3, 2.1, -0.9)); txt('?', mp[0], mp[1] - 20, 130, { c: '#ffe03a', s: back((t - T.descer) / 0.25), rot: 0.15 * Math.sin(t * 6) }); } });
   }
   else if (N === 'calma') {
     setMood('day'); const bl = sm(T.coco - 0.1, T.coco + 0.3, t); HANG(t, { blush: bl, nod: -0.12 * bl });
@@ -192,7 +192,7 @@ function staging(t) {
   }
   else if (N === 'semana') {
     setMood('day'); const g = sm(S + 0.2, T.terco + 0.3, t); HANG(t, { belly: g, blush: 0.6 * g });
-    cam(lerp(0.6, 0.4, k), 0.45, lerp(6.4, 5.6, k), V(HX, BY - 1.25, TZ), T.terco - 0.1);
+    cam(lerp(0.6, 0.4, k), 0.45, lerp(6.6, 6.0, k), V(HX, BY - 0.35, TZ), T.terco - 0.1);
     ov.push(() => { const D = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D']; const n = Math.floor(7 * sm(S + 0.2, T.terco - 0.3, t) + 0.001); const sc = back((t - S - 0.05) / 0.3);
       ctx.save(); ctx.translate(W / 2, 270); ctx.scale(sc, sc); ctx.rotate(-0.02); ctx.fillStyle = '#101010'; ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 10; ctx.beginPath(); ctx.roundRect(-470, -95, 940, 190, 34); ctx.fill(); ctx.shadowColor = 'transparent';
       for (let i = 0; i < 7; i++) { const x = -390 + i * 130; ctx.fillStyle = i < n ? '#8a5a1f' : '#2c2c2c'; ctx.beginPath(); ctx.roundRect(x - 54, -64, 108, 128, 18); ctx.fill(); ctx.font = '70px Cap'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = i < n ? '#ffe03a' : '#777'; ctx.fillText(D[i], x, -8); ctx.font = '30px Cap'; ctx.fillStyle = i < n ? '#fff' : '#555'; ctx.fillText(i < n ? 'segura' : '', x, 42); } ctx.restore();
@@ -215,8 +215,8 @@ function staging(t) {
     setMood('sunset'); const cx = lerp(0.45, 0.2, k); slAt(t, cx, 0, -1.25, -0.75 - 1.6 * sm(T.perigo, T.perigo + 0.4, t), { a0: 1.2 + 0.2 * Math.sin(t * 1.5), a1: 1.2 - 0.2 * Math.sin(t * 1.5) }); pile(4);
     const ox = lerp(4.6, 2.5, sm(S + 0.3, E, t)); oncaAt(t, ox, -1.6, Math.PI, 1);
     cam(lerp(0.35, 0.55, k), 0.5, lerp(9.0, 8.0, k), V(1.2, 0.7, -1.3), T.metade - 0.1);
-    ov.push(() => { if (t < T.metade - 0.15) { stamp('PERIGO', W / 2, 330, T.perigo - 0.1, { size: 140 }); } const hp = scr(sl.head()); if (t > T.perigo - 0.1) txt('!', hp[0], hp[1] - 150, 190, { c: '#ff5548', s: back((t - T.perigo + 0.1) / 0.25), rot: 0.12 * Math.sin(t * 7) });
-      tag(scr(V(cx, 0.3, -1.25)), 'fugindo a 30 cm/min', -120, 250, S + 0.9, { size: 42 });
+    ov.push(() => { if (t < T.metade - 0.15) { stamp('PERIGO', W / 2, 330, T.perigo - 0.1, { size: 140 }); } const hp = scr(sl.head()); if (t > T.perigo - 0.1 && t < T.metade - 0.15) txt('!', hp[0], hp[1] - 150, 190, { c: '#ff5548', s: back((t - T.perigo + 0.1) / 0.25), rot: 0.12 * Math.sin(t * 7) });
+      tag(scr(V(cx, 0.3, -1.25)), 'fugindo a 30 cm/min', 150, 190, S + 0.9, { size: 42 });
       if (t > T.metade - 0.15) { const n = 50 * sm(T.metade - 0.15, T.metade + 0.5, t); big2(Math.round(n) + '%', 330, 230, T.metade - 0.15, '#ff5548'); big2('MORREM NO CHÃO', 490, 80, T.metade + 0.3, '#fff'); } });
   }
   else if (N === 'fimA' || N === 'fimB') {
@@ -231,7 +231,7 @@ function staging(t) {
       else pill([{ txt: 'SEGUE', size: 130, c: '#62f26e' }, { txt: 'pro próximo bicho', size: 54 }], W / 2, 320, pB + 0.05); });
   }
   else if (N === 'lenta') {
-    setMood('morning'); HANG(t, { chew: 1, a1: 1.9 }); const hp = sl.head(); leaf.visible = true; leaf.position.set(hp.x + 0.25, hp.y - 0.24, hp.z + 0.42); leaf.rotation.set(0.3, 0.5, 0.2 * Math.sin(t * 5));
+    setMood('morning'); HANG(t, { chew: 1 }); const hp = sl.head(); leaf.visible = true; leaf.scale.setScalar(0.7); leaf.position.set(hp.x + 0.24, hp.y - 0.2 - 0.02 * Math.abs(Math.sin(t * 5)), hp.z + 0.42); leaf.rotation.set(0.9, 0.5, 0.5 + 0.15 * Math.sin(t * 5));
     cam(lerp(0.4, 0.6, k), 0.4, lerp(5.0, 4.2, k), V(HX, BY - 0.95, TZ), T.mes - 0.4);
     ov.push(() => { stamp('PIORA', W / 2, 330, T.piora - 0.1, { size: 150, t1: T.mes - 0.45 }); if (t > T.mes - 0.4) { const n = 1 + 29 * sm(T.mes - 0.4, T.mes + 0.5, t); pill([{ txt: 'DIGERIR 1 FOLHA', size: 54 }], W / 2, 250, T.mes - 0.4); big2(Math.round(n) + ' DIAS', 450, 190, T.mes - 0.35); } });
   }
@@ -261,7 +261,7 @@ function staging(t) {
         if (t > T.porra - 0.05) stamp('ERA SÓ NADAR', W / 2, 340, T.nadar - 0.35, { size: 116 }); } });
   }
   else if (N === 'folego') {
-    setMood('day'); slAt(t, 0, -2.05, 2.2, 0.5, { a0: 1.2, a1: 1.9, l0: 0.6, l1: 1.2 }); isle.userData.pads.forEach(p => p.visible = false);
+    setMood('day'); slAt(t, 0, -1.78 + 0.03 * Math.sin(t * 3), 2.2, 0.5, { a0: 1.2, a1: 1.9, l0: 0.6, l1: 1.2 }); isle.userData.pads.forEach(p => p.visible = false);
     bubs.forEach((b, i) => { const q = (t * 0.7 + i / 8) % 1; b.visible = true; b.position.set(0.45 + 0.2 * Math.sin(i * 2 + t * 3), -0.75 + q * 0.7, 2.45 + 0.15 * Math.cos(i * 3)); b.scale.setScalar(0.5 + q); b.material.opacity = 0.9 * (1 - q); });
     cam(lerp(0.5, 0.35, k), 0.5, 5.8, V(0.2, -0.3, 2.2), S);
     ov.push(() => { const fr = sm(S + 0.2, T.q40 + 0.5, t), mn = Math.round(fr * 40); pill([{ txt: 'SEM RESPIRAR', size: 54 }, { txt: mn + ':00', size: 180, c: '#62f26e' }, { txt: 'minutos', size: 46, c: '#cfcfcf' }], W / 2, 390, S + 0.1); });
@@ -280,11 +280,11 @@ function staging(t) {
   else { // sono
     setMood('night'); HANG(t, { sleep: 1, sway: 0.4 }); const ad = t > T.adol - 0.6;
     if (ad) { mini.visible = true; mini.position.set(1.6, 0.22, -0.9); mini.rotation.set(0, 0.4, Math.PI / 2); miniL.forEach(l => l.rotation.z = 0); }
-    cam(lerp(0.5, 0.7, k), 0.5, ad ? lerp(9.8, 9.2, sm(T.adol - 0.6, E, t)) : lerp(6.6, 6.0, k), V(ad ? 0.6 : HX, ad ? 1.7 : BY - 1.2, -1.6), ad ? T.adol - 0.6 : T.nove - 0.2);
+    cam(lerp(0.5, 0.7, k), 0.5, ad ? lerp(9.8, 9.2, sm(T.adol - 0.6, E, t)) : lerp(6.6, 6.0, k), V(ad ? 0.6 : HX, ad ? 1.0 : BY - 1.2, -1.6), ad ? T.adol - 0.6 : T.nove - 0.2);
     ov.push(() => { const hp = scr(sl.head()); for (let i = 0; i < 3; i++) { const q = (t * 0.45 + i / 3) % 1; txt('z', hp[0] + 70 + q * 150, hp[1] - 60 - q * 230, 60 + q * 70, { a: 1 - q, c: '#cfd8ff' }); }
       if (t < T.nove - 0.25) stamp('O MAIOR GOLPE', W / 2, 330, T.golpe - 0.15, { size: 112 });
       else if (!ad) { big2('9h30', 320, 230, T.nove - 0.2); big2('DE SONO POR DIA', 480, 84, T.nove + 0.3, '#fff'); }
-      else { pill([{ txt: 'preguiça: 9h30', size: 64, c: '#62f26e' }], W / 2, 290, T.adol - 0.6); const mp = scr(V(1.6, 0.5, -0.9)); tag(mp, 'ADOLESCENTE', 40, 210, T.adol - 0.2, { size: 60, c: '#ff5548' }); for (let i = 0; i < 3; i++) { const q = (t * 0.6 + i / 3) % 1; txt('z', mp[0] + 40 + q * 120, mp[1] - 40 - q * 180, 50 + q * 60, { a: 1 - q, c: '#cfd8ff' }); } } });
+      else { pill([{ txt: 'preguiça: 9h30', size: 64, c: '#62f26e' }], W / 2, 290, T.adol - 0.6); const mp = scr(V(1.6, 0.5, -0.9)); tag(mp, 'ADOLESCENTE', 170, -170, T.adol - 0.2, { size: 60, c: '#ff5548' }); for (let i = 0; i < 3; i++) { const q = (t * 0.6 + i / 3) % 1; txt('z', mp[0] + 40 + q * 120, mp[1] - 40 - q * 180, 50 + q * 60, { a: 1 - q, c: '#cfd8ff' }); } } });
   }
 }
 
