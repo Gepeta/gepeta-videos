@@ -9,3 +9,4 @@ episodes/*/render.log
 episodes/*/video*.mp4
 episodes/*/prev_*.jpg
 episodes/*/sheet.jpg
+__pycache__/
